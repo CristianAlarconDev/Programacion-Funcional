@@ -57,4 +57,9 @@ object EjerciciosIntermedios {
   }
   //Ejercicio 9
   val maximoDePar = (maximo: Int, actual: Int) => (if (actual > maximo) actual else maximo)
-  val minimoDePar = (minimo: Int, actual: Int) => (if (actual < minimo)
+  val minimoDePar = (minimo:Int, actual:Int)=> (if(actual<minimo) actual else minimo)
+
+  def topNro(numeros: List[Int], nro: Int, funcion: (Int, Int) => Int): List[Int] = {
+    val listaPorFuncion = numeros.sortWith((a, b) => funcion(a, b) == a)
+    listaPorFuncion.take(nro)
+  }
