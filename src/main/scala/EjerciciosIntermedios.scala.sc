@@ -42,3 +42,12 @@ object EjerciciosIntermedios {
     }
     auxiliar(palabra.toList)
   }
+  //Ejercicio 8
+  def maximo(lista:List[Int]): Int ={
+    def auxiliar(lista:List[Int], maximoActual:Int):Int = lista match {
+      case Nil=>maximoActual
+      case head::tail if (head>maximoActual)=>auxiliar(tail, head)
+      case headNoMaximo::tail => auxiliar(tail, maximoActual)
+    }
+  auxiliar(lista, lista.head)
+}
