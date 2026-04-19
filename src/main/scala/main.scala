@@ -1,17 +1,15 @@
-package com.calarcon.ejercicios
 
-
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 @main
 def main(): Unit = {
-  //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-  // to see how IntelliJ IDEA suggests fixing it.
-  (1 to 5).map(println)
+  println("EJERCICIOS INTERMEDIOS ===")
 
-  for (i <- 1 to 5) {
-    //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-    // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-    println(s"i = $i")
-  }
+  // --- Ejercicio 1: Buscar Elemento ---
+  println("\n> Ej 1: buscarElemento")
+  val listaBusqueda = List(1, 2, 3, 4, 5)
+  println(s"¿Está el 3? ${EjerciciosIntermedios.buscarElemento(listaBusqueda, 3)}")
+  assert(EjerciciosIntermedios.buscarElemento(listaBusqueda, 3))
+  assert(!EjerciciosIntermedios.buscarElemento(listaBusqueda, 99))
+
+
 }
 
