@@ -19,5 +19,10 @@ def main(): Unit = {
   assert(resultadoFiltrado == List(15, 20, 12))
   println(s"Mayores a 10 usando FlatMap: $resultadoFiltrado2")
   assert(resultadoFiltrado2 == List(15, 20, 12))
-}
 
+  // --- Ejercicio 6: Capicúa ---
+  println("\n> Ej 6: esCapicua")
+  println(s"¿'neuquen' es capicua? ${EjerciciosIntermedios.esCapicuav2("neuquen")}")
+  assert(EjerciciosIntermedios.esCapicuav2("radar"))
+  assert(!EjerciciosIntermedios.esCapicuav2("scala"))
+}
