@@ -26,7 +26,7 @@ object EjerciciosIntermedios {
   def filtrarConDiferencia(lista: List[Int], nro: Int): List[Int] = {
     lista.map(elemento => elemento - nro).filter(diferencia => diferencia > 10)
   }
-}
+
   //Ejercicio 6
   def esCapicua(palabra:String):Boolean={
     val reversa= palabra.reverse
@@ -63,3 +63,4 @@ object EjerciciosIntermedios {
     val listaPorFuncion = numeros.sortWith((a, b) => funcion(a, b) == a)
     listaPorFuncion.take(nro)
   }
+}
