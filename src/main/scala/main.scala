@@ -33,6 +33,13 @@ def main(): Unit = {
   assert(EjerciciosIntermedios.esCapicuav2("radar"))
   assert(!EjerciciosIntermedios.esCapicuav2("scala"))
 
+  // --- Ejercicio 8: Capicúa ---
+  println("\n> Ej 8: maximo")
+  println(s"Maximo de la lista: ${EjerciciosIntermedios.maximo(List(1, 2, 3, 4, 5))}")
+  assert(EjerciciosIntermedios.maximo(List(1, 2, 3, 4, 5)) == 5)
+  println(s"Maximo de la lista sin match: ${EjerciciosIntermedios.maximoSinMatch(List(1, 2, 3, 4, 5))}")
+  assert(EjerciciosIntermedios.maximoSinMatch(List(1, 2, 3, 4, 5)) == 5)
+
   // --- Ejercicio 9: Top K ---
   println("\n> Ej 9: topNro")
   val numeros = List(70, 100, 80, 90)
