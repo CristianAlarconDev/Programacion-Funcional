@@ -22,5 +22,8 @@ object EjerciciosIntermedios {
   def filtrarConFlatMap(listas: List[List[Int]], elemento: Int): List[Int] = {
     listas.flatMap(identity).filter(nro => nro > elemento)
   }
-
+  //Ejercicio 3 (rehacerlo con recursion y/o collect con pattern matching)
+  def filtrarConDiferencia(lista: List[Int], nro: Int): List[Int] = {
+    lista.map(elemento => elemento - nro).filter(diferencia => diferencia > 10)
+  }
 }
