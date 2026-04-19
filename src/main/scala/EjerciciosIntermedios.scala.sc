@@ -49,5 +49,9 @@ object EjerciciosIntermedios {
       case head::tail if (head>maximoActual)=>auxiliar(tail, head)
       case headNoMaximo::tail => auxiliar(tail, maximoActual)
     }
-  auxiliar(lista, lista.head)
-}
+    auxiliar(lista, lista.head)
+  }
+  def maximoSinMatch(lista:List[Int]):Int ={
+    val maximoDePar = (maximo:Int, actual:Int)=> (if(actual>maximo) actual else maximo)
+    lista.reduce(maximoDePar)
+  }
