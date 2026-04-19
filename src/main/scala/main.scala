@@ -25,4 +25,12 @@ def main(): Unit = {
   println(s"¿'neuquen' es capicua? ${EjerciciosIntermedios.esCapicuav2("neuquen")}")
   assert(EjerciciosIntermedios.esCapicuav2("radar"))
   assert(!EjerciciosIntermedios.esCapicuav2("scala"))
+
+  // --- Ejercicio 9: Top K ---
+  println("\n> Ej 9: topNro")
+  val numeros = List(70, 100, 80, 90)
+  val top2Max = EjerciciosIntermedios.topNro(numeros, 2, EjerciciosIntermedios.maximoDePar)
+  println(s"Top 2 Máximos: $top2Max")
+  assert(top2Max == List(100, 90))
+  println("\n ¡Si llegamos aca todo esta bien!")
 }
