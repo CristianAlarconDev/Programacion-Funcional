@@ -32,3 +32,13 @@ object EjerciciosIntermedios {
     val reversa= palabra.reverse
     palabra==reversa
   }
+  def esCapicuav2(palabra: String): Boolean = {
+    def auxiliar(listaChar: List[Char]): Boolean = listaChar match {
+      case Nil => false
+      case _ :: Nil => true
+      case head :: tail =>
+        if (head == tail.last) auxiliar(tail.init)
+        else false
+    }
+    auxiliar(palabra.toList)
+  }
