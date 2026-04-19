@@ -20,6 +20,13 @@ def main(): Unit = {
   println(s"Mayores a 10 usando FlatMap: $resultadoFiltrado2")
   assert(resultadoFiltrado2 == List(15, 20, 12))
 
+  // --- Ejercicio 3: Filtrar desde lista los elementos que
+  // tienen una diferencia mayor a 10 desde n ---
+  val listaPrueba = List(16, 17, 18, 19, 20)
+  val n = 8
+  val resultado = EjerciciosIntermedios.filtrarConDiferencia(listaPrueba, n)
+  assert(resultado == List(11, 12))
+
   // --- Ejercicio 6: Capicúa ---
   println("\n> Ej 6: esCapicua")
   println(s"¿'neuquen' es capicua? ${EjerciciosIntermedios.esCapicuav2("neuquen")}")
