@@ -19,5 +19,8 @@ object EjerciciosIntermedios {
     filtrarListas(listas, elemento)
   }
 
+  def filtrarConFlatMap(listas: List[List[Int]], elemento: Int): List[Int] = {
+    listas.flatMap(identity).filter(nro => nro > elemento)
+  }
 
 }
