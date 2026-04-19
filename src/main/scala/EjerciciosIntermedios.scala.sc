@@ -27,8 +27,8 @@ object EjerciciosIntermedios {
     lista.map(elemento => elemento - nro).filter(diferencia => diferencia > 10)
   }
 }
-//Ejercicio 6
-def esCapicua(palabra:String):Boolean={
-  val reversa= palabra.reverse
-  palabra==reversa
-}
+  //Ejercicio 6
+  def esCapicua(palabra:String):Boolean={
+    val reversa= palabra.reverse
+    palabra==reversa
+  }
