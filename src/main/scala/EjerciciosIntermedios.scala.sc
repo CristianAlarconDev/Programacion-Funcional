@@ -55,3 +55,6 @@ object EjerciciosIntermedios {
     val maximoDePar = (maximo:Int, actual:Int)=> (if(actual>maximo) actual else maximo)
     lista.reduce(maximoDePar)
   }
+  //Ejercicio 9
+  val maximoDePar = (maximo: Int, actual: Int) => (if (actual > maximo) actual else maximo)
+  val minimoDePar = (minimo: Int, actual: Int) => (if (actual < minimo)
