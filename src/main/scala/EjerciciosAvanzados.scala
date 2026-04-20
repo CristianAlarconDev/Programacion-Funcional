@@ -3,6 +3,7 @@ package com.calarcon.ejercicios
 import scala.annotation.tailrec
 
 object EjerciciosAvanzados {
+  //Ejercicio 1
   def contar(palabras:List[String]):Map[String,Int]={
     @tailrec
     def auxiliar(palabras:List[String], map: Map[String, Int]):Map[String, Int]= palabras match {
@@ -30,8 +31,11 @@ object EjerciciosAvanzados {
     auxiliar(palabras, Map[String, Int]())
 
   }
+  //Ejercicio 2
   def contarPalabras(texto:String):Map[String,Int]={
     val listaPalabras= texto.toLowerCase.split("\\W+").toList.filter(_.nonEmpty)
     contarV2(listaPalabras)
   }
+
+  //Ejercicio 3
 }
