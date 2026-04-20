@@ -38,4 +38,17 @@ object EjerciciosAvanzados {
   }
 
   //Ejercicio 3
+
+  def agruparPares(numeros:List[Int]):List[Int]={
+    @tailrec
+    def auxiliar (restantes:List[Int], acumulados:List[Int]):List[Int] = restantes match{
+      case Nil => acumulados
+      case head::tail =>
+        val (iguales, distintos) = tail.partition(n => n == head)
+        val bloque = head :: iguales
+        auxiliar(distintos, acumulados ::: bloque)
+    }
+    auxiliar(numeros, List())
+
+  }
 }
