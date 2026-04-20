@@ -28,7 +28,10 @@ object EjerciciosAvanzados {
         auxiliar(tail, nuevoMapa)
     }
     auxiliar(palabras, Map[String, Int]())
-    
+
   }
-  
+  def contarPalabras(texto:String):Map[String,Int]={
+    val listaPalabras= texto.toLowerCase.split("\\W+").toList.filter(_.nonEmpty)
+    contarV2(listaPalabras)
+  }
 }
