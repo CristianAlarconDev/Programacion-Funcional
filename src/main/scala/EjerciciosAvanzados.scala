@@ -51,4 +51,17 @@ object EjerciciosAvanzados {
     auxiliar(numeros, List())
 
   }
+
+  //Ejercicio 4
+  //Rehacer luego y evitar la estructura de control if-else
+  def primerosPrimos(numero: Int): List[Int] = {
+    def esPrimo(n: Int): Boolean = {
+      if (n <= 1) false
+      else if (n == 2) true
+      else !(2 to Math.sqrt(n.toDouble).toInt).exists(divisor => n % divisor == 0)
+    }
+    val flujoPrimos = LazyList.from(2).filter(esPrimo)
+    flujoPrimos.take(numero).toList
+  }
+  
 }
