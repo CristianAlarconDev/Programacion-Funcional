@@ -1,4 +1,4 @@
-
+package com.calarcon.ejercicios
 @main
 def main(): Unit = {
   println("EJERCICIOS INTERMEDIOS ===")

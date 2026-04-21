@@ -1,3 +1,5 @@
+package com.calarcon.ejercicios
+
 object EjerciciosIntermedios {
   //Ejercicio 1
   def buscarElemento(lista: List[Int], elementoBuscado: Int): Boolean = {
