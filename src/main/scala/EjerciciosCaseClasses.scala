@@ -30,4 +30,10 @@ object EjerciciosCaseClasses {
       archivos.map(arc => tamanioTotal(arc)).sum
   }
 
+  //Alternativa, misma idea pero con acumulador dentro del fold; sigue sin ser tail recursion
+  def tamanioTotalConFold(archivo: Archivo): Int = archivo match {
+    case ArchivoSimple(_, tamanio) => tamanio
+    case Carpeta(_, archivos) =>
+      archivos.foldLeft(0)((acumulador, arch) => acumulador + tamanioTotalConFold(arch))
+  }
 }
