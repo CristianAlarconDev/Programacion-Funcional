@@ -16,4 +16,18 @@ object EjerciciosCaseClasses {
     sqrt((difX * difX) + (difY * difY))
 
   }
+  //Ejercicio 3
+  //tipos de datos abstractos,
+  // luego usando pattern matching deberia poder considerar ambos casos
+  sealed trait Archivo
+  case class ArchivoSimple(nombre: String, tamano: Int) extends Archivo
+  case class Carpeta(nombre: String, archivos: List[Archivo]) extends Archivo
+
+  //No es recursion de cola porque queda pendiente el sum luego de la llamada recursiva
+  def tamanioTotal(archivo: Archivo): Int = archivo match {
+    case ArchivoSimple(_, tamanio) => tamanio
+    case Carpeta(_, archivos) =>
+      archivos.map(arc => tamanioTotal(arc)).sum
+  }
+
 }
