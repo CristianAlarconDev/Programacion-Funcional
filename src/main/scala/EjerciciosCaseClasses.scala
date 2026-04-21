@@ -1,4 +1,7 @@
 package com.calarcon.ejercicios
+
+import scala.annotation.tailrec
+
 object EjerciciosCaseClasses {
 
   //Ejercicio 1
@@ -35,5 +38,17 @@ object EjerciciosCaseClasses {
     case ArchivoSimple(_, tamanio) => tamanio
     case Carpeta(_, archivos) =>
       archivos.foldLeft(0)((acumulador, arch) => acumulador + tamanioTotalConFold(arch))
+  }
+  //Otra alternativa ahora si con tail recursion
+  def tamanioTotalConTailRec(archivoInicial: Archivo): Int = {
+    @tailrec
+    def auxiliar(pendientes: List[Archivo], acumulador: Int): Int = pendientes match {
+      case Nil => acumulador
+      case ArchivoSimple(_, tamanio) :: resto =>
+        auxiliar(resto, acumulador + tamanio)
+      case Carpeta(_, hijos) :: resto =>
+        auxiliar(hijos ::: resto, acumulador)
+    }
+    auxiliar(List(archivoInicial), 0)
   }
 }
