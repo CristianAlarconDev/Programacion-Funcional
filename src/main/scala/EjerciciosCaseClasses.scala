@@ -51,4 +51,28 @@ object EjerciciosCaseClasses {
     }
     auxiliar(List(archivoInicial), 0)
   }
+  //Ejercicios de parcial
+
+  //Ejercicio 2
+  def contarLetras(palabra:String):Int={
+    val soloLetras=palabra.filter(_.isLetter)
+    soloLetras.length
+  }
+
+  def doblar(lista: List[String]): List[String] = {
+    @tailrec
+    def auxiliar(pendientes: List[String], acumulador: List[String]): List[String] = pendientes match {
+      case Nil => acumulador
+      case "perro" :: tail =>
+        auxiliar(tail, acumulador :+ "sabueso")
+      case head :: tail if contarLetras(head) > 10 =>
+        auxiliar(tail, acumulador)
+      case head :: tail if contarLetras(head) == 4 =>
+        auxiliar(tail, acumulador :+ head :+ head)
+      case head :: tail =>
+        auxiliar(tail, acumulador :+ head)
+    }
+    auxiliar(lista, Nil)
+  }
+
 }
