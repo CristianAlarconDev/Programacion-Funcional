@@ -74,5 +74,30 @@ object EjerciciosCaseClasses {
     }
     auxiliar(lista, Nil)
   }
+  //Ejercicio 3
+  import scala.annotation.tailrec
 
-}
+  def limpiar(texto: String): List[String] = {
+    texto.toLowerCase
+      .split("\\W+")
+      .filter(p => p.nonEmpty && p != "y")
+      .toList
+  }
+
+
+  def palabraMasFrecuenteMix(texto: String): String = {
+    val palabras = limpiar(texto)
+
+    @tailrec
+    def contar(lista: List[String], acc: Map[String, Int]): Map[String, Int] = lista match {
+      case Nil => acc
+      case h :: t => contar(t, acc + (h -> (acc.getOrElse(h, 0) + 1)))
+    }
+
+    val frecuencias = contar(palabras, Map.empty)
+    val (palabra, cuenta) = frecuencias.maxBy(par => par._2)
+    palabra
+    }
+  }
+
+
