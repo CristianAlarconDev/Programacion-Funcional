@@ -14,17 +14,18 @@ case class Aplicacion(funcion: AST, argumento: AST) extends AST
 
 //RECORDAR TANTO CUERPO COMO ARGUMENTO O FUNCIÓN PUEDEN SER NODOS U HOJAS, AST
 
-
+object Parser {
 def parse(tokens: List[Token]): AST = {
   val (astResultante, sobrantes) = parseExpression(tokens)
   astResultante
 }
 
 // devuelve tupla por ahora, arbol y lista
-private def parseExpression(tokens: List[Token]): (AST, List[Token]) = tokens match {
+def parseExpression(tokens: List[Token]): (AST, List[Token]) = tokens match {
 
   // Si el primer token es una Variable
   case VAR(nombre) :: resto =>
     (Variable(nombre), resto)
 
+}
 }
