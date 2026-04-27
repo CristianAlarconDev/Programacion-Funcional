@@ -67,8 +67,24 @@ def main(): Unit = {
   println(s"Test C (λx.x): ${Parser.parse(tokensC)}")
 
   val tokensD = List(LAMBDA, VAR("x"), DOT, LAMBDA, VAR("y"), DOT, VAR("x"))
-  println(s"INPUT C: " + tokensD)
+  println(s"INPUT D: " + tokensD)
   println(s"Test D (λx.λy.x): ${Parser.parse(tokensD)}")
+
+  val tokensE = List(LPAR, VAR("x"), SPACE, VAR("y"), RPAR)
+  println(s"INPUT E: " + tokensE)
+  println(s"Test E (x y): ${Parser.parse(tokensE)}")
+  // se espera aplicacion(Variable("x"), Variable("y"))
+
+  // Para prueba la asociatividad a izquierda
+  val tokensF = List(LPAR, LPAR, VAR("x"), SPACE, VAR("y"), RPAR, SPACE, VAR("z"), RPAR)
+  println(s"INPUT F: " + tokensF)
+  println(s"Test F ((x y) z): ${Parser.parse(tokensF)}")
+  // se espera aplicacion(Aplicacion(Variable("x"), Variable("y")), Variable("z"))
+
+  // combinacion de abstracción y aplicación
+  val tokensG = List(LPAR, LAMBDA, VAR("x"), DOT, LPAR, LAMBDA, VAR("y"), DOT, LPAR, VAR("y"), RPAR, RPAR, RPAR, SPACE, VAR("a"), RPAR)
+  println(s"INPUT G: " + tokensG)
+  println(s"Test G (λx.(λy.(y))) a): ${Parser.parse(tokensG)}")
 
 
 }
