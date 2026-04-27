@@ -47,4 +47,21 @@ def main(): Unit = {
   println(s"Top 2 Máximos: $top2Max")
   assert(top2Max == List(100, 90))
   println("\n ¡Si llegamos aca todo esta bien!")
+
+  // Input: "x" -> Lexer -> List(VAR("x"))
+  val tokensA = List(VAR("x"))
+  println(s"INPUT A: "+ tokensA)
+  println(s"TEST A: ${Parser.parse(tokensA)}")
+
+
+  // Solo guarda la variable y deja el resto para analizar luego
+  val tokensB = List(VAR("abc"), SPACE, DOT)
+  val (astB, restoB) = (Parser.parseExpression(tokensB))
+  println(s"INPUT B: " + tokensB)
+  println(s"Test B - AST: $astB") // Salida: Variable("abc")
+  println(s"Test B - Resto: $restoB") // Salida: List(SPACE, DOT)
+
+
+
+
 }
