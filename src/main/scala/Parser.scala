@@ -26,9 +26,24 @@ def parseExpression(tokens: List[Token]): (AST, List[Token]) = tokens match {
   // Si el primer token es una Variable
   case VAR(nombre) :: resto =>
     (Variable(nombre), resto)
-  //Verifico si tiene la estructura de una abstracción  
+  //Verifico si tiene la estructura de una abstracción
   case LAMBDA :: VAR(param) :: DOT :: resto =>
     val (cuerpoAST, sobrantes) = parseExpression(resto)
     (Abstraccion(Variable(param), cuerpoAST), sobrantes)
+  //Para el caso de abstracción
+  case LPAR :: resto =>
+    val (primeraExpresion, trasPrimera) = parseExpression(resto)
+    analizarCierreParentesis(primeraExpresion, trasPrimera)
 }
+  private def analizarCierreParentesis(exp: AST, tokens: List[Token]): (AST, List[Token]) = tokens match {
+    // Caso aplicacion <LPAR> <lambda expresion> <SPACE> <lambda expresion> <RPAR>
+    case SPACE :: resto =>
+      val (argumento, trasArgumento) = parseExpression(resto)
+      trasArgumento match {
+        case RPAR :: finalTokens => (Aplicacion(exp, argumento), finalTokens)
+        case _ => throw new Exception("Error: Se esperaba ')' tras el argumento de la aplicación")
+      }
+    // Caso agrupacion: (lambda x.x)  devuelve la expresión interna
+    case RPAR :: resto => (exp, resto)
+  }
 }
