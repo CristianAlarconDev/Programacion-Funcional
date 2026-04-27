@@ -26,6 +26,9 @@ def parseExpression(tokens: List[Token]): (AST, List[Token]) = tokens match {
   // Si el primer token es una Variable
   case VAR(nombre) :: resto =>
     (Variable(nombre), resto)
-
+  //Verifico si tiene la estructura de una abstracción  
+  case LAMBDA :: VAR(param) :: DOT :: resto =>
+    val (cuerpoAST, sobrantes) = parseExpression(resto)
+    (Abstraccion(Variable(param), cuerpoAST), sobrantes)
 }
 }
