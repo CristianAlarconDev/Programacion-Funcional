@@ -61,7 +61,14 @@ def main(): Unit = {
   println(s"Test B - AST: $astB") // Salida: Variable("abc")
   println(s"Test B - Resto: $restoB") // Salida: List(SPACE, DOT)
 
+  //Estos son para el caso de abstraccion, luego voy a mover todos a un archivo test
+  val tokensC = List(LAMBDA, VAR("x"), DOT, VAR("x"))
+  println(s"INPUT C: " + tokensC)
+  println(s"Test C (λx.x): ${Parser.parse(tokensC)}")
 
+  val tokensD = List(LAMBDA, VAR("x"), DOT, LAMBDA, VAR("y"), DOT, VAR("x"))
+  println(s"INPUT C: " + tokensD)
+  println(s"Test D (λx.λy.x): ${Parser.parse(tokensD)}")
 
 
 }
